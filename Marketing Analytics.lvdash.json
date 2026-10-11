@@ -1,0 +1,766 @@
+{
+  "datasets": [
+    {
+      "name": "a120c9ad",
+      "displayName": "ab_test_roi_summary",
+      "config": {
+        "version": "1.1",
+        "source": "marketing_analytics.gold.ab_test_roi_summary",
+        "dimensions": [
+          {
+            "expr": "source.*"
+          }
+        ],
+        "measures": [
+          {
+            "name": "count",
+            "expr": "COUNT(*)",
+            "comment": "Represents the total number of rows in the dataset. Use this measure to count all",
+            "displayName": "Count"
+          }
+        ]
+      }
+    },
+    {
+      "name": "30fafff3",
+      "displayName": "ab_test_by_frequency",
+      "config": {
+        "version": "1.1",
+        "source": "marketing_analytics.gold.ab_test_by_frequency",
+        "dimensions": [
+          {
+            "expr": "source.*"
+          }
+        ],
+        "measures": [
+          {
+            "name": "count",
+            "expr": "COUNT(*)",
+            "comment": "Represents the total number of rows in the dataset. Use this measure to count all",
+            "displayName": "Count"
+          }
+        ]
+      }
+    }
+  ],
+  "pages": [
+    {
+      "name": "e4bc61a5",
+      "displayName": "A/B Test Overview",
+      "layout": [
+        {
+          "widget": {
+            "name": "ad-group-conversion-rate",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "a120c9ad",
+                  "fields": [
+                    {
+                      "name": "sum(ad_rate_pct)",
+                      "expression": "SUM(`ad_rate_pct`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "headerAlignment": "center",
+                "title": {
+                  "value": "#### <span style=\"font-family:Arial;font-size:14px\">Ad group conversion rate</span>",
+                  "fields": []
+                }
+              },
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "sum(ad_rate_pct)"
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 2,
+            "width": 3,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "0d75acd6",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "a120c9ad",
+                  "fields": [
+                    {
+                      "name": "sum(psa_rate_pct)",
+                      "expression": "SUM(`psa_rate_pct`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "headerAlignment": "center",
+                "title": {
+                  "value": "#### <span style=\"font-family:Arial;font-size:14px\">Control group conversion rate</span>",
+                  "fields": []
+                }
+              },
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "sum(psa_rate_pct)"
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 2,
+            "width": 3,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "5ffa50c4",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "a120c9ad",
+                  "fields": [
+                    {
+                      "name": "sum(lift_pts)",
+                      "expression": "SUM(`lift_pts`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "headerAlignment": "center",
+                "title": {
+                  "value": "#### <span style=\"font-family:Arial;font-size:14px\">Relative Lift(%)</span>",
+                  "fields": []
+                }
+              },
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "sum(lift_pts)"
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 2,
+            "width": 3,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "52873def",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "a120c9ad",
+                  "fields": [
+                    {
+                      "name": "sum(relative_lift_pct)",
+                      "expression": "SUM(`relative_lift_pct`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "headerAlignment": "center",
+                "title": {
+                  "value": "#### <span style=\"font-family:Arial;font-size:14px\">Lift(% points)</span>",
+                  "fields": []
+                }
+              },
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "sum(relative_lift_pct)"
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 9,
+            "y": 2,
+            "width": 3,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "e3ee73dd",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "30fafff3",
+                  "fields": [
+                    {
+                      "name": "test_group",
+                      "expression": "`test_group`"
+                    },
+                    {
+                      "name": "ad_bucket",
+                      "expression": "`ad_bucket`"
+                    },
+                    {
+                      "name": "sum(conversion_rate_pct)",
+                      "expression": "SUM(`conversion_rate_pct`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "ad_bucket",
+                  "axis": {
+                    "hideLabels": true,
+                    "hideTitle": false,
+                    "title": "Ad Bucket"
+                  },
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "y": {
+                  "fieldName": "sum(conversion_rate_pct)",
+                  "axis": {
+                    "hideGrid": true,
+                    "hideLabels": true,
+                    "title": "Conversion Rate(%)"
+                  },
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "color": {
+                  "fieldName": "test_group",
+                  "legend": {
+                    "hideTitle": false,
+                    "position": "top",
+                    "title": "Test Group"
+                  },
+                  "scale": {
+                    "type": "categorical"
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 5,
+            "width": 12,
+            "height": 8
+          }
+        },
+        {
+          "widget": {
+            "name": "b6c8082e",
+            "multilineTextboxSpec": {
+              "lines": [
+                "# <span style=\"text-align:center;display:block;\"><span style=\"font-size: 36px;line-height: 1.5;\">Marketing Analytics</span></span>"
+              ]
+            },
+            "specExtensions": {
+              "widgetBackgroundColor": {
+                "dark": "#00466F"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 12,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "revenue_counter",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "a120c9ad",
+                  "fields": [
+                    {
+                      "name": "sum(revenue)",
+                      "expression": "SUM(`revenue`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "title": "Revenue"
+              },
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "sum(revenue)",
+                  "rowNumber": 0
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 13,
+            "width": 4,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "cost_counter",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "a120c9ad",
+                  "fields": [
+                    {
+                      "name": "sum(cost)",
+                      "expression": "SUM(`cost`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "title": "Cost"
+              },
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "sum(cost)",
+                  "rowNumber": 0
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 4,
+            "y": 13,
+            "width": 4,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "net_profit_counter",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "a120c9ad",
+                  "fields": [
+                    {
+                      "name": "sum(net_profit)",
+                      "expression": "SUM(`net_profit`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "title": "Net Profit"
+              },
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "sum(net_profit)",
+                  "rowNumber": 0
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 8,
+            "y": 13,
+            "width": 4,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "conversion_rate_line",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "30fafff3",
+                  "fields": [
+                    {
+                      "name": "test_group",
+                      "expression": "`test_group`"
+                    },
+                    {
+                      "name": "ad_bucket",
+                      "expression": "`ad_bucket`"
+                    },
+                    {
+                      "name": "sum(conversion_rate_pct)",
+                      "expression": "SUM(`conversion_rate_pct`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "title": "Conversion Rate by Ad Frequency"
+              },
+              "version": 3,
+              "widgetType": "line",
+              "encodings": {
+                "x": {
+                  "fieldName": "ad_bucket",
+                  "displayName": "ad_bucket",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "y": {
+                  "fieldName": "sum(conversion_rate_pct)",
+                  "displayName": "conversion_rate_pct",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "color": {
+                  "fieldName": "test_group",
+                  "displayName": "test_group",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 16,
+            "width": 6,
+            "height": 8
+          }
+        },
+        {
+          "widget": {
+            "name": "users_by_test_group_pie",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "30fafff3",
+                  "fields": [
+                    {
+                      "name": "sum(users)",
+                      "expression": "SUM(`users`)"
+                    },
+                    {
+                      "name": "test_group",
+                      "expression": "`test_group`"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "title": "Users by Test Group"
+              },
+              "version": 3,
+              "widgetType": "pie",
+              "encodings": {
+                "angle": {
+                  "fieldName": "sum(users)",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "users"
+                },
+                "color": {
+                  "fieldName": "test_group",
+                  "displayName": "test_group",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 16,
+            "width": 6,
+            "height": 8
+          }
+        },
+        {
+          "widget": {
+            "name": "roi_summary_table",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "a120c9ad",
+                  "fields": [
+                    {
+                      "name": "sum(ad_users)",
+                      "expression": "SUM(`ad_users`)"
+                    },
+                    {
+                      "name": "sum(psa_users)",
+                      "expression": "SUM(`psa_users`)"
+                    },
+                    {
+                      "name": "sum(extra_conversions)",
+                      "expression": "SUM(`extra_conversions`)"
+                    },
+                    {
+                      "name": "sum(revenue)",
+                      "expression": "SUM(`revenue`)"
+                    },
+                    {
+                      "name": "sum(cost)",
+                      "expression": "SUM(`cost`)"
+                    },
+                    {
+                      "name": "sum(net_profit)",
+                      "expression": "SUM(`net_profit`)"
+                    },
+                    {
+                      "name": "avg(breakeven_value_per_conversion)",
+                      "expression": "AVG(`breakeven_value_per_conversion`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "title": "ROI Summary"
+              },
+              "version": 2,
+              "widgetType": "table",
+              "encodings": {
+                "columns": [
+                  {
+                    "fieldName": "sum(ad_users)"
+                  },
+                  {
+                    "fieldName": "sum(psa_users)"
+                  },
+                  {
+                    "fieldName": "sum(extra_conversions)"
+                  },
+                  {
+                    "fieldName": "sum(revenue)"
+                  },
+                  {
+                    "fieldName": "sum(cost)"
+                  },
+                  {
+                    "fieldName": "sum(net_profit)"
+                  },
+                  {
+                    "fieldName": "avg(breakeven_value_per_conversion)"
+                  }
+                ]
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 24,
+            "width": 12,
+            "height": 6
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "layoutVersion": "GRID_V1"
+    },
+    {
+      "name": "global_filters",
+      "displayName": "Global Filters",
+      "layout": [
+        {
+          "widget": {
+            "name": "test_group_filter",
+            "queries": [
+              {
+                "name": "dashboards/01f1b741d1361e93aae45e29405f34e8/datasets/01f1b74b86761378bc5921b824d33cdb_test_group",
+                "query": {
+                  "datasetName": "30fafff3",
+                  "fields": [
+                    {
+                      "name": "test_group",
+                      "expression": "`test_group`"
+                    },
+                    {
+                      "name": "test_group_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Test Group"
+              },
+              "widgetType": "filter-single-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "test_group",
+                    "queryName": "dashboards/01f1b741d1361e93aae45e29405f34e8/datasets/01f1b74b86761378bc5921b824d33cdb_test_group"
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 12,
+            "height": 2
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_GLOBAL_FILTERS",
+      "layoutVersion": "GRID_V1"
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "canvasBackgroundColor": {
+        "light": "#FAFAFB",
+        "dark": "#1F272D"
+      },
+      "widgetBackgroundColor": {
+        "light": "#FFFFFF",
+        "dark": "#11171C"
+      },
+      "fontColor": {
+        "light": "#11171C",
+        "dark": "#E8ECF0"
+      },
+      "selectionColor": {
+        "light": "#2272B4",
+        "dark": "#8ACAFF"
+      },
+      "visualizationColors": [
+        "#077A9D",
+        "#FFAB00",
+        "#00A972",
+        "#FF3621",
+        "#8BCAE7",
+        "#AB4057",
+        "#99DDB4",
+        "#FCA4A1",
+        "#919191",
+        "#BF7080"
+      ],
+      "widgetHeaderAlignment": "LEFT",
+      "textBoxVerticalAlign": "VERTICAL_ALIGN_CENTER"
+    },
+    "applyModeEnabled": false
+  }
+}
